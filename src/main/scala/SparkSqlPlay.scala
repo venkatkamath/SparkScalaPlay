@@ -1,11 +1,15 @@
 import org.apache.spark.rdd.RDD
-import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.sql.{Row, SQLContext}
 import org.apache.spark.sql.types.{LongType, StringType, StructField, StructType}
+import org.apache.spark.sql.{Row, SQLContext}
+import org.apache.spark.{SparkConf, SparkContext}
 
 /**
   * Created by venkat on 25/03/17.
+  *
+  * Goal of this class is to understand how to use DF and Spark Sql
   */
+
+
 object SparkSqlPlay {
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("Spark Sql Play").setMaster("local")

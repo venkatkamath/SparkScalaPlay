@@ -1,17 +1,21 @@
-import org.apache.spark.rdd.RDD
-import org.apache.spark.{SparkConf, SparkContext}
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.writer.SqlRowWriter
 import org.apache.spark.sql.SQLContext
+import org.apache.spark.{SparkConf, SparkContext}
 
 /**
   * Created by venkat on 25/03/17.
   *
-  * to setup emp table, refer to commands in cassandra_db_setup.txt
+  * to setup tables in cassandra, refer to commands in cassandra_db_setup.txt
+  *
+  * Goal of this class is to read and write DF/RDD against cassandra
   */
+
+
 object SparkCassandraPlay {
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setAppName("Spark Sql Play").setMaster("local").set("spark.cassandra.connection.host", "127.0.0.1")
+    val conf = new SparkConf().setAppName("Spark Cassandra Play").setMaster("local")
+      .set("spark.cassandra.connection.host", "127.0.0.1")
     val sc = new SparkContext(conf)
     val job = new SparkCassandraJob(sc)
     job.run()
@@ -41,12 +45,10 @@ class SparkCassandraJob(sc: SparkContext) {
       SomeColumns("currencyid","id","clientname", "country","balance","currency"))
   }
 
-
   def run(): Unit = {
     readFromCassandra(sc)
     saveToCassandra(sc)
   }
-
 
 }
 

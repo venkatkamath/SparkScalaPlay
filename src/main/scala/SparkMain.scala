@@ -2,7 +2,10 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 /**
   * Created by venkat kamath on 25/03/17.
+  *
+  * Goal of this class is to understand the behaviour of transformations that Spark provides
   */
+
 
 class NumberCrunchingJob(sc:SparkContext) {
 
