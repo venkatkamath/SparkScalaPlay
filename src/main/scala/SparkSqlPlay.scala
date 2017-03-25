@@ -17,9 +17,7 @@ object SparkSqlPlay {
 
 //move this class outside SparkSqlJob due to outer class reference spark else it will attempt to serialize the outer class
 case class Account(id: Long, clientName: String, country: String, balance: Long, currencyId: Long)
-
 case class Currency(currencyId: Long, currency: String)
-
 
 class SparkSqlJob(sc: SparkContext) {
 

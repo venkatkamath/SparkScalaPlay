@@ -1,0 +1,14 @@
+create keyspace dev with replication = {'class':'SimpleStrategy','replication_factor':1};
+use dev;
+
+create table emp (empid int primary key,emp_first varchar, emp_last varchar, emp_dept varchar);
+insert into emp (empid, emp_first, emp_last, emp_dept) values (1,'fred','smith','ct');
+insert into emp (empid, emp_first, emp_last, emp_dept) values (2,'venkat','kamath','cib');
+
+CREATE TABLE account_balance (
+    id bigint PRIMARY KEY,
+    balance bigint,
+    clientName text,
+    country text,
+    currency text
+)
