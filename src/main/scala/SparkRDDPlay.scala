@@ -27,7 +27,7 @@ class NumberCrunchingJob(sc:SparkContext) {
 }
 
 
-object SparkMain {
+object SparkRDDPlay {
 
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("Spark Scala Play").setMaster("local")
